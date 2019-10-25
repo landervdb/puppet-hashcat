@@ -4,7 +4,7 @@ Puppet::Parser::Functions.newfunction(:collect_hash, :type => :rvalue) do |args|
   target = args[0]
 
   deep_merge = proc do |first, second|
-    if firs.is_a?(Hash) && second.is_a?(Hash)
+    if first.is_a?(Hash) && second.is_a?(Hash)
       first.merge(second) do |_key, first_val, second_val|
         deep_merge.call(first_val, second_val)
       end
